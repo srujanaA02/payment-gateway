@@ -1,0 +1,297 @@
+/* =======================
+   Global Reset
+======================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =======================
+   Theme Variables (NEW)
+======================= */
+:root {
+  /* Brand Colors */
+  --primary: #0f766e;          /* Deep Teal */
+  --primary-dark: #0b5f59;
+  --secondary: #64748b;        /* Slate */
+
+  /* Status Colors */
+  --success: #15803d;
+  --error: #b91c1c;
+  --warning: #b45309;
+
+  /* Backgrounds */
+  --bg-light: #f8fafc;
+  --bg-white: #ffffff;
+
+  /* Text */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+
+  /* Borders & Shadows */
+  --border: #e2e8f0;
+  --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 6px 18px rgba(15, 23, 42, 0.12);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.18);
+
+  /* Radius */
+  --radius: 10px;
+  --radius-lg: 16px;
+}
+
+/* =======================
+   Base Styles
+======================= */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =======================
+   Layout
+======================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* =======================
+   Buttons
+======================= */
+button,
+.btn {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+button:hover,
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+button:active,
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+  letter-spacing: 0.3px;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-secondary {
+  background: var(--bg-white);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+
+.btn-success {
+  background: var(--success);
+  color: #ffffff;
+}
+
+.btn-error {
+  background: var(--error);
+  color: #ffffff;
+}
+
+/* =======================
+   Cards
+======================= */
+.card {
+  background: linear-gradient(180deg, #ffffff, #f9fafb);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-header {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+/* =======================
+   Inputs
+======================= */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: #ffffff;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+input::placeholder {
+  color: var(--text-secondary);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+}
+
+/* =======================
+   Tables
+======================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+thead {
+  background: var(--bg-light);
+}
+
+th {
+  padding: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  letter-spacing: 0.6px;
+}
+
+td {
+  padding: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+}
+
+tr:hover {
+  background: #f1f5f9;
+}
+
+/* =======================
+   Badges / Status
+======================= */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge-success {
+  background: rgba(21, 128, 61, 0.1);
+  color: var(--success);
+}
+
+.badge-error {
+  background: rgba(185, 28, 28, 0.1);
+  color: var(--error);
+}
+
+.badge-warning {
+  background: rgba(180, 83, 9, 0.1);
+  color: var(--warning);
+}
+
+.badge-processing {
+  background: rgba(100, 116, 139, 0.12);
+  color: var(--secondary);
+}
+
+/* =======================
+   Loader
+======================= */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 40px;
+}
+
+/* =======================
+   Utilities
+======================= */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-muted { color: var(--text-secondary); }
+.text-success { color: var(--success); }
+.text-error { color: var(--error); }
+
+.mb-1 { margin-bottom: 8px; }
+.mb-2 { margin-bottom: 16px; }
+.mb-3 { margin-bottom: 24px; }
+.mb-4 { margin-bottom: 32px; }
+
+.mt-1 { margin-top: 8px; }
+.mt-2 { margin-top: 16px; }
+.mt-3 { margin-top: 24px; }
+.mt-4 { margin-top: 32px; }
+
+/* =======================
+   Responsive
+======================= */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  th,
+  td {
+    padding: 12px 8px;
+    font-size: 13px;
+  }
+}
